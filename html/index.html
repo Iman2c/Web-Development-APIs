@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pokemon/Detect Language App</title>
+		<style>
+			body, form{
+				margin:20px auto;
+				max-width:800px;
+				overflow-x:hidden;
+			}
+			fieldset{
+				display: flex;
+			}
+			input#description{
+				flex-grow:50;
+				margin: 0 20px;
+			}
+			input#location{
+				flex-grow:50;
+				margin: 0 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="search" method="get">
+			<img src="../images/banner.jpg" alt="Pokemon Search" style="width: 35vw; min-width: 330px;" />
+			<fieldset>
+				<legend>Name a Pokemon</legend>
+				<label for="description">Pokemon:</label>
+				<input id="description" name="word" type="text" />			
+				<input type="submit" />
+			</fieldset>
+		</form>
+	</body>
+</html>

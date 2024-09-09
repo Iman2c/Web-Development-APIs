@@ -1,0 +1,27 @@
+title PokeAPI/Detect Language w/API keys
+
+
+participant User
+participant Server
+participant PokeAPI [A]
+participant Detect Language API [B]
+
+User->(1)Server:Browser requests "/" (root of the site)
+Server->(1)User: Sends 200 OK, returns index.html(form)
+User->(1)Server:User fills out form (supplies data: **input**) \n browser requests /search (root of the site)
+
+Server->(1)PokeAPI [A]: Server sends request to pokeAPI \n using **input**
+
+note over PokeAPI [A]: API gives a lot of information \n about pokemon, we only \n use name value
+
+
+PokeAPI [A]->(1)Detect Language API [B]: PokeAPI requests to \n access Detect Language API \n passing **firstSearch** value
+
+Detect Language API [B]->User: Detect Language asks user to provide API with Detect Language **Authorization-Key**.
+User->Detect Language API [B]: User provides **Authorization-Key**
+
+note over Detect Language API [B]: Use detect method to \n give us value representing \n the language of **firstSearch**
+
+Detect Language API [B]->(1)Server: Detect Language API returns 200 OK + returns **finalSearch** to server
+
+Server->(1)User: 200 OK displays detected language
